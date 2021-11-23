@@ -1,0 +1,99 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    @include respond(tab-port) {
+      flex-direction: row;
+    }
+    &__aside{
+      transition: 2s all ease-out;
+      color: $white;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      @include respond(tab-port) {
+        width: 20%;
+        height: 100vh;
+        background: $blue-light;
+      }
+      &__options{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: $blue-light;
+        padding: 2rem;
+      }
+      &__nav{
+          animation-name: moveInUp;
+          animation-duration: 0.5s;
+          padding: 2rem;
+          display: flex;
+          flex-direction: column;
+          border: none;
+          background: $blue-light;
+          a{
+            color: $white;
+            font-size: $ms-font-size;
+            padding: 1.2rem;
+            transition: 650ms all ease;
+          }
+          a:hover{
+            background: $blue-light-2;
+            color: $black;
+            font-weight: $bold-font-weigth;
+          }
+          &--active{
+            background: $blue-light-2;
+            font-weight: $bold-font-weigth;
+          }
+          &--hidden{
+            display: none;
+            @include respond(tab-port) {
+              display: flex;
+            }
+          }      
+      }
+    }
+    &__section{
+        padding: 2rem;
+        background: $white-light;
+        width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    
+    &__header{
+      width: 100%;
+      background: $white;
+      border-radius: 5px;
+      padding: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(7, 7, 7, 0.096);
+      &__content{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include respond(tab-port) {
+          width: 35%;
+        }
+      }
+    }
+    
+    &__content{
+      overflow-y: auto;
+      width: 100%;
+      height: 52rem;
+      @include respond(tab-port) {
+        height: 42rem;
+      }
+      padding: 1rem;
+      background: $white;
+      box-shadow: 0 0.5rem 1rem rgba(7, 7, 7, 0.096);
+    }
+    
+    &__footer{
+      width: 100%;
+      padding: 1rem;
+      background: $white;
+      box-shadow: 0 0.5rem 1rem rgba(7, 7, 7, 0.096);
+    }
+}

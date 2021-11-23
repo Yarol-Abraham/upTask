@@ -1,0 +1,21 @@
+// ----- functions -----
+@import "functions/mixins.scss";
+// ----- base -----
+@import "base/variables";
+@import "base/utils";
+@import "base/typography";
+@import "base/animations";
+@import "base/base";
+// ----- components -----
+@import "components/alerts";
+@import "components/buttons";
+@import "components/inputs";
+@import "components/modal";
+// ----- layout -----
+@import "layout/header";
+@import "layout/footer";
+// ----- pages -----
+@import "pages/auth";
+@import "pages/main";
+@import "pages/pages";
+@import "pages/projects";

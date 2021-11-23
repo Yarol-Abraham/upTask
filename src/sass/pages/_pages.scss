@@ -1,0 +1,44 @@
+.page{
+    &__container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__form{
+        width: 100%;
+        @include respond(tab-port) {
+            width: 60%;
+        }
+       &__fieldset{
+            background: $white-light;   
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid $white-md-light;
+       }
+       &__legend{
+           font-size: $ms-font-size;
+           color: $gray;
+       }
+       &__input{
+            background: $white-light;
+            outline: none;
+            padding: 1rem;
+            border: none;
+            border-bottom: 2px solid $blue-light;
+       }
+       &__box{
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+            @include respond(tab-port) {
+                flex-direction: row;
+            }
+       }
+    }
+}

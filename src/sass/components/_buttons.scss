@@ -1,0 +1,61 @@
+.btn {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  position: relative;
+  letter-spacing: 0.2rem;
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 20px rgba($black, 0.253);
+  }
+
+  &:active {
+    transform: translateY(0.1rem);
+    box-shadow: 0 5px 10px rgba($black, 0.253);
+  }
+
+  &--animated {
+    animation: moveInBottom 300ms ease-out 300ms;
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-transparent{
+  background: none;
+  @include respond(tab-port) {
+    display: none;
+  }
+}
+
+// COLORS
+.btn-blue {
+  background: $blue;
+  color: $white;
+}
+
+.btn-blue:hover {
+  background: $blue-light;
+}
+
+.btn-red{
+  background: $red;
+  color: $white;
+}
+
+.btn-red:hover{
+  background: $red-light;
+}
+
+// WIDTH
+.btn-ms-w {
+  width: 10rem;
+}
+
+.btn-md-w {
+  width: 20rem;
+}

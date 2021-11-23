@@ -1,0 +1,5 @@
+.parcel-cache
+dist
+vendor
+node_modules
+/includes/environment.php

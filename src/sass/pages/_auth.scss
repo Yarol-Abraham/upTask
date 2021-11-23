@@ -1,0 +1,96 @@
+.auth {
+  position: relative;
+  background: $bg__grad--1; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    $bg__grad--2,
+    $bg__grad--1
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    $bg__grad--2,
+    $bg__grad--1
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    background: $white;
+    width: 80%;
+    border-radius: 5px;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    @include respond(phone) {
+      flex-direction: row;
+    }
+  }
+
+  &__title {
+    color: $blue;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+  }
+
+  &__link {
+    color: $white-md-light;
+    &:hover {
+      color: $blue-light;
+    }
+  }
+
+  &__box {
+    width: 100%;
+    padding: 0;
+    @include respond(phone) {
+      height: 100%;
+    }
+    &--imgCreate {
+      background-image: url(/src/images/registrar.png);
+    }
+    &--imgLogin {
+      background-image: url(/src/images/laptop.jpg);
+    }
+    &--imgForgett {
+      background-image: url(/src/images/enviar_mail.png);
+    }
+    &--imgRestore {
+      background-image: url(/src/images/laptop_write.jpg);
+    }
+    &--bg {
+      background-position: center center;
+      background-size: cover;
+      border-radius: 5px;
+    }
+    &--form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__mensaje {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__form-login,
+  &__form-create {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+  }
+
+  &__form-login {
+    height: 80%;
+    &__item {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

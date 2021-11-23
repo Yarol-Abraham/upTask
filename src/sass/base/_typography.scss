@@ -1,0 +1,45 @@
+h1 {
+  font-size: $title-font-size;
+  font-family: $font_sans;
+  font-weight: $bold-font-weigth;
+}
+
+h2{
+  font-size: $md-font-size;
+  font-family: $font_sans;
+  font-weight: $bold-font-weigth;
+}
+
+h3{
+  font-size: $mh-font-size;
+  font-family: $font_Condesed;
+  font-weight: $bold-font-weigth;
+}
+
+h4{
+  font-size: $ms-font-size;
+  font-family: $font_Condesed;
+  font-weight: $regular-font-weigth;
+}
+
+label {
+  font-size: $ms-font-size;
+  font-weight: $regular-font-weigth;
+  animation-name: moveInBottom;
+  animation-duration: 1s;
+}
+
+input {
+  font-size: $ms-font-size;
+  font-weight: $regular-font-weigth;
+}
+
+a {
+  font-size: $default-font-size;
+  font-weight: $regular-font-weigth;
+  text-decoration: none;
+}
+
+p {
+  font-size: $default-font-size;
+}

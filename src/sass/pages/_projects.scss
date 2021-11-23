@@ -1,0 +1,36 @@
+.projects{
+    &__message{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__img{
+        width: 50%;
+    }
+    &__list{
+       width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-y: auto;
+        &__link{
+            margin: 1rem;
+            padding: 3rem;
+            border-radius: 5px;
+            background: $bg__grad--1;
+            font-weight: $bold-font-weigth;
+            color: $white;
+            width: 40rem;
+            border: none;
+            transition: 150ms all ease-in;
+            @include respond(tab-port) {
+                width: 30rem;
+            }
+        }
+        &__link:hover{
+            background: $blue-light;
+            border-right: 2px solid $blue-light;
+        }
+    }
+}

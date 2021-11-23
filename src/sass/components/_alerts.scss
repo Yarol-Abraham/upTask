@@ -1,0 +1,12 @@
+.alert {
+  border-radius: 5px;
+  position: absolute;
+  top: 5rem;
+  padding: 1rem;
+  animation-name: moveInUp;
+  animation-duration: 1s;
+  &-error {
+    background: $red;
+    color: $white;
+  }
+}
