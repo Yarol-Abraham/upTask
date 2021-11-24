@@ -4,6 +4,7 @@ namespace Controllers; // agrupacion
 
 use MVC\Router;
 use Model\ProjectsModel;
+use Model\TaskModel;
 
 class ProjectsController {
 
@@ -57,8 +58,7 @@ class ProjectsController {
         if(empty($getProject)) return header("Location: /upTask/dashboard/index"); // si el token no existe
         if($getProject->id_usuario != $_SESSION["id"])  return header("Location: /upTask/dashboard/index"); // si el token existe, pero no es el usuario logueado
         $project::setRoute("/pages/project");
-        $project::setName("Proyecto"); 
-    
+        $project::setName("Proyecto");
         static::render($router, $getProject);  
     }
  

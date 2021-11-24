@@ -12,7 +12,7 @@
                     <form method="POST" class="page__form">
                         <fieldset class="page__form__fieldset">
                             <legend class="page__form__legend">Agregar una nueva tarea</legend>
-                            <input class="page__form__input" type="text" placeholder="Escribir..." name="tarea" />
+                            <input class="page__form__input" type="text" placeholder="Escribir..." name="nombre" />
                             
                             <div class="page__form__box">
                                 <button class="btn-md-w btn btn-blue btn--animated ms-m" type="submit">Agregar</button>
@@ -25,7 +25,7 @@
             <div class="overlay modal--hidden"></div>
 
             <div class="project__main__list">
-
+                <h2>listado de tareas</h2>
             </div>
         </div>
     </div><!----- content ----->

@@ -5,25 +5,19 @@ export function modal()
     const btnsCloseModal = document.querySelectorAll('.btn--close');
     const btnOpenModal = document.querySelector('.btn--show');
 
-    function togleElements()
+    function toggleElements()
     {
         modal.classList.toggle("modal--hidden");
         overlay.classList.toggle("modal--hidden");
     }
 
-    const openModal = function(e) // abrir modal
+    const toggleModal = function(e) // abrir o cerrar el modal
     {
         e.preventDefault();
-        togleElements();
+        toggleElements();
     }
 
-    const closeModal = function(e)// cerrar modal
-    {
-        e.preventDefault();
-        togleElements();
-    }
-
-   btnOpenModal.addEventListener('click', openModal); // abrir modal
-   btnsCloseModal.forEach(btn => btn.addEventListener('click', closeModal) ); // cerrar modal
-   overlay.addEventListener('click', closeModal); // cerrar modal
+   btnOpenModal.addEventListener('click', toggleModal); // abrir modal
+   btnsCloseModal.forEach(btn => btn.addEventListener('click', toggleModal) ); // cerrar modal
+   overlay.addEventListener('click', toggleModal); // cerrar modal
 }
