@@ -28,4 +28,10 @@ class TaskModel extends ActiveRecord {
         $this->id_proyecto = $args["id_proyecto"] ?? '';
     }
 
+    public function validate() 
+    {
+        if(!$this->nombre) self::setErrors("error", "El nombre de la tarea no es válido 😢");
+        return self::getErrors();
+    }
+
 }

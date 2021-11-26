@@ -51,14 +51,17 @@ class ProjectsController {
     public static function project(Router $router){
        
         session_start();
+        $project = new ProjectsModel; 
+        $project::setRoute("/pages/project");
+        $project::setName("Proyecto");
+
         $url = isset($_GET["url"]) ? $_GET["url"] : null;
         if(!$url) return header("Location: /upTask/dashboard/index"); // si no hay token
-        $project = new ProjectsModel; 
+        
         $getProject = $project->where("url", $url);
         if(empty($getProject)) return header("Location: /upTask/dashboard/index"); // si el token no existe
         if($getProject->id_usuario != $_SESSION["id"])  return header("Location: /upTask/dashboard/index"); // si el token existe, pero no es el usuario logueado
-        $project::setRoute("/pages/project");
-        $project::setName("Proyecto");
+        
         static::render($router, $getProject);  
     }
  

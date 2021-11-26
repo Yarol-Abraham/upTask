@@ -9,7 +9,8 @@
                     <button class="btn--close btn--close-modal">&times;</button>
                 </div>
                 <div class="modal__body">
-                    <form method="POST" class="page__form">
+                    <!--
+                        <form method="POST" class="page__form">
                         <fieldset class="page__form__fieldset">
                             <legend class="page__form__legend">Agregar una nueva tarea</legend>
                             <input class="page__form__input" type="text" placeholder="Escribir..." name="nombre" />
@@ -20,6 +21,7 @@
                             </div>
                         </fieldset>
                     </form>
+                    -->
                 </div>
             </div>
             <div class="overlay modal--hidden"></div>

@@ -10,7 +10,7 @@ class ActiveRecord
     protected static $columns = [];
     protected static $route = ""; // ruta de la vista
     protected static $name = ""; // nombre de la pagina
-
+    protected static $id_create = ""; // obtener el id cada que se crea uno nuevo
     // static = secondaria, self= primaria;
     
     public static function setRoute($route)
@@ -31,6 +31,16 @@ class ActiveRecord
     public static function getName()
     {
         return self::$name;
+    }
+
+    public static function setId($id)
+    {
+        self::$id_create = $id;
+    }
+
+    public static function getId()
+    {
+        return self::$id_create;
     }
 
     // Alertas y Mensajes - errores
@@ -65,6 +75,7 @@ class ActiveRecord
     }
 
     // ----- CRUD -----
+    
     public function create() // crear
     {
         $attributes = $this->sanitizeAttributes(); // sanitizar los atributos
@@ -73,7 +84,9 @@ class ActiveRecord
         $sql .= ") VALUES (' ";
         $sql .= join("', '", array_values($attributes));
         $sql .= " ') ";
-        return self::$db->query($sql);
+        $result = self::$db->query($sql);
+        self::setId(self::$db->insert_id);
+        return $result;
     }
 
     public function update() // actualizar

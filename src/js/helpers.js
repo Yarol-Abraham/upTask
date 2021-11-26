@@ -8,22 +8,25 @@ export const timeout = function(s)
       }, s * 1000);  
     })
 }
-/* Metodo ajax */
-export const ajax = async function(url, uploadData = undefined)
+
+/* Metodo ajax - post */
+export const AJAXPOST = async function(url, task)
 {
     try {
-      const fetchPro = uploadData
-      ? fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(uploadData),
-        })
-      : fetch(url);
-      const res = new Promise.race([fetchPro, timeout(TIME_SEC)]);
+  
+      const form = new FormData();    
+      Object.keys(task).forEach(el => form.append(el, task[el]) );
+
+      const fetchPro = fetch(url, {
+        method: 'POST',
+        body: form
+      });
+
+      const res = await Promise.race([fetchPro, timeout(TIME_SEC)]); // tiempo de consulta: 10 segundos
       const data = await res.json();
+      
       if(!res.ok) throw new Error("Lo sentimos! no se encontraron resultados 😢");
+      
       return data;
     } catch (error) { throw error; }
 }

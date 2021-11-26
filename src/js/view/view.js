@@ -1,6 +1,7 @@
+import { message } from '../dom/alerts.js';
 
 class View {
-    message = "Ha ocurrido un error inesperado, por favor vuelve a intentar! 😢";
+     
     _data;
   
     render(data)
@@ -12,27 +13,28 @@ class View {
         this._clear();
         this._parentElement.insertAdjacentHTML('afterbegin', markup);*/
     }
-
     _clear()
     { 
-      this._parentElement.innerHTML = ""; 
-      this._component.innerHTML = "";
+      this._modalComponet.innerHTML = "";
     }
-      
+
     renderSpinner() // spinner mientras realiza la peticion
     {
       const markup = `
-      <div class="lds-ring"><div></div><div></div><div></div><div>
+        <div class="lds-ring"><div></div><div></div><div></div><div>
       `;
       this._clear();
-      this._component.insertAdjacentHTML('afterbegin', markup);
+      this._modalComponet.insertAdjacentHTML('afterbegin', markup);
     }
 
-    renderError() // si existe un error en el servidor
+    renderError(type, msg) // si existe un error
     {
-      const markup = `<p>Ha ocurrido un error</p>`;
-      this._clear();
-      this._component.insertAdjacentHTML('afterbegin', markup);    
+      message(type, msg, this._modalComponet);   
+    }
+
+    renderSuccess(type, msg) // si se crea la tarea sin problemas
+    {
+      message(type, msg, this._modalComponet);   
     }
 
 }

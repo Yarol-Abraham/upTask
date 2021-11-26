@@ -7,6 +7,12 @@
     }
     &__img{
         width: 50%;
+        @include respond(tab-port) {
+            width: 40%;
+        }
+        @include respond(tab-land) {
+            width: 25%;
+        }
     }
     &__list{
        width: 100%;
