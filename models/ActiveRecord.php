@@ -120,12 +120,12 @@ class ActiveRecord
         return array_shift( $result );
     }
 
-    public static function getOne() // obtener un registro por
+    public static function getOne() // obtener un registro
     {
         
     }
 
-    public static function getAll_Id($name, $value) // obtener todos los registros por usuario
+    public static function getAll_Id($name, $value) // obtener todos los registros por un campo
     {
         $sql = "SELECT * FROM " . static::$table . " WHERE ";
         $sql .= $name . "=" . "'{$value}'";

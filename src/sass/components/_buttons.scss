@@ -51,9 +51,20 @@
   background: $red-light;
 }
 
+.btn-yellow{
+  background: $yellow;
+  color: $white;
+}
+
+.btn-yellow:hover{
+  background: $yellow-light;
+}
+
 // WIDTH
 .btn-ms-w {
-  width: 10rem;
+  border-radius: 5px;
+  font-size: $min-font-size;
+  width: 9rem;
 }
 
 .btn-md-w {

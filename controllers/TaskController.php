@@ -3,15 +3,10 @@
 namespace Controllers; // agrupacion
 
 use Model\ProjectsModel;
-use Model\UserModel;
 use Model\TaskModel;
 
 class TaskController {
 
-    public static function index()
-    {
-
-    }
 
     private static function sendError($msg = "Hubo un error al agregar la tarea! 😢")
     {
@@ -32,6 +27,32 @@ class TaskController {
             "msg" => $msg
         ];
         echo json_encode($res);
+    }
+
+    private static function sendAll($tasks)
+    {
+        $res = [
+            "status" => true,
+            "type" => "success",
+            "tasks" => $tasks
+        ];
+        echo json_encode($res);
+    }
+
+    public static function index()
+    {
+        session_start();
+        if(!$_SESSION) return static::sendError(); // debe exister una sesion 
+        
+        if(!isset($_GET['url'])) return static::sendError(); // si no existe la url
+        
+        $project = ProjectsModel::where('url', $_GET['url']);
+
+        if(empty($project)) return static::sendError(); // debe exister el proyecto
+
+        $tasks = TaskModel::getAll_Id('id_proyecto', $project->id);
+
+        static::sendAll($tasks);
     }
 
     public static function create()

@@ -9,18 +9,23 @@ export const timeout = function(s)
     })
 }
 
-/* Metodo ajax - post */
-export const AJAXPOST = async function(url, task)
+/* Método ajax - POST / GET */
+export const AJAX = async function(url, task = null)
 {
     try {
-  
-      const form = new FormData();    
-      Object.keys(task).forEach(el => form.append(el, task[el]) );
+      let fetchPro;
 
-      const fetchPro = fetch(url, {
-        method: 'POST',
-        body: form
-      });
+      if(task)
+      {
+        const form = new FormData();    
+        Object.keys(task).forEach(el => form.append(el, task[el]) );
+
+        fetchPro = fetch(url, {
+          method: 'POST',
+          body: form
+        });
+
+      }else{ fetchPro = fetch(url); }
 
       const res = await Promise.race([fetchPro, timeout(TIME_SEC)]); // tiempo de consulta: 10 segundos
       const data = await res.json();

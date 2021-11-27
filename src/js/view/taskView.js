@@ -3,7 +3,7 @@ import View from './view.js';
 
 class TaskView extends View {
    
-    _modalComponet = document.querySelector('.modal__body');
+    _parentComponent = document.querySelector('.modal__body');
     _modal = document.querySelector('.modal');
     _overlay = document.querySelector('.overlay');
 
@@ -22,8 +22,8 @@ class TaskView extends View {
                 </fieldset>
             </form>
        `; 
-       this._modalComponet.innerHTML = "";
-       this._modalComponet.insertAdjacentHTML('afterbegin', markup);
+       this._parentComponent.innerHTML = "";
+       this._parentComponent.insertAdjacentHTML('afterbegin', markup);
     }
 
     addHandleForm(handle = null)

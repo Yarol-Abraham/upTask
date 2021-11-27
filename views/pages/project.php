@@ -9,25 +9,20 @@
                     <button class="btn--close btn--close-modal">&times;</button>
                 </div>
                 <div class="modal__body">
-                    <!--
-                        <form method="POST" class="page__form">
-                        <fieldset class="page__form__fieldset">
-                            <legend class="page__form__legend">Agregar una nueva tarea</legend>
-                            <input class="page__form__input" type="text" placeholder="Escribir..." name="nombre" />
-                            
-                            <div class="page__form__box">
-                                <button class="btn-md-w btn btn-blue btn--animated ms-m" type="submit">Agregar</button>
-                                <button class="btn--close btn-md-w btn btn-red btn--animated ms-m" type="button">Cancelar</button>
-                            </div>
-                        </fieldset>
-                    </form>
-                    -->
+                    <!-- generate js -->
                 </div>
             </div>
             <div class="overlay modal--hidden"></div>
 
-            <div class="project__main__list">
-                <h2>listado de tareas</h2>
+            <div class="project__list">
+                <!--<div class="project__list--item">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <div class="project__list--buttons">
+                        <button type="button" class="btn btn-ms-w btn-yellow">Pendiente</button>
+                        <button type="button" class="btn btn-ms-w btn-red">Eliminar</button>
+                    </div>
+                </div> -->
+                
             </div>
         </div>
     </div><!----- content ----->
