@@ -103,8 +103,11 @@ class ActiveRecord
         return self::$db->query($sql);
     }
 
-    public function remove() // eliminar
+    public function remove() // eliminar un registro
     {
+        $query = "DELETE FROM "  . static::$table . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $resultado = self::$db->query($query);
+        return $resultado;
     }
 
     public function getFindId($id) // buscar un registro por id

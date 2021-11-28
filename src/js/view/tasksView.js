@@ -15,14 +15,15 @@ class TasksView extends View {
             <div class="project__list--item">
                 <p>${task.nombre}</p>
                 <div class="project__list--buttons">
-                    <button id="${task.id}" type="button" class="btn btn-ms-w btn-yellow">Pendiente</button>
-                    <button id="${task.id}" type="button" class="btn btn-ms-w btn-red">Eliminar</button>
+                    <button id="${task.id}" data-update_id="${task.id}" type="button" class="btn btn-ms-w btn-${Number(task.estado) === 0 ? 'yellow' : 'green'}">${Number(task.estado) === 0 ? 'Pendiente' : 'Completo'}</button>
+                    <button data-remove_id="${task.id}" type="button" class="btn btn-ms-w btn-red">Eliminar</button>
                 </div>
             </div>
         `;
     }
 
-    _renderMessage(){
+    _renderMessage()
+    {
         return `
             <div class="projects__message">
                 <p class="text-center text-uppercase md-mb">En este apartato apareceran tus tareas creados! 😊✔</p>
@@ -31,6 +32,26 @@ class TasksView extends View {
                 </div>
             </div> 
         `;
+    }
+
+    addHandleUpdateTask(handle)
+    {
+       this._parentComponent.addEventListener('click', function(e){
+            const btn = e.target.closest('.btn-yellow') || e.target.closest('.btn-green');
+            if(!btn) return;
+            const id = btn.dataset.update_id;
+            handle(id, "update");
+       });
+    }
+
+    addHandleDeleteTask(handle)
+    {
+        this._parentComponent.addEventListener('click', function(e){
+            const btn = e.target.closest('.btn-red');
+            if(!btn) return;
+            const id = btn.dataset.remove_id;
+            handle(id, "delete");
+       });
     }
 
 }

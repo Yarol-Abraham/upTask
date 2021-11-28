@@ -5,8 +5,8 @@ import tasksView from './view/tasksView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-const listTask = async function(){
-
+const listTask = async function()
+{
     try {
         //loading
         tasksView.renderSpinner();
@@ -21,8 +21,9 @@ const listTask = async function(){
         // renderizar la vista
         tasksView.render(tasks.tasks);
         
-    } catch (error) {
-        console.log(error.message);
+    } catch (error)
+    {
+        tasksView.renderFail( "error", error.message );
     }
 }
 
@@ -42,6 +43,12 @@ const createTask = async function(newTask)
         // render form
         renderForm();
         
+        // update tasks
+        const { tasks } = model.state.tasks;
+
+        // render tasks
+        tasksView.render(tasks);
+
         // success
         taskView.renderSuccess( "success", task.msg );
 
@@ -49,6 +56,26 @@ const createTask = async function(newTask)
         renderForm();
         taskView.renderError( "error", error.message );
     }
+}
+
+const updateTask = async function(id, method = "")
+{
+    try {
+        
+        // update state
+        if(method === "update") await model.updateTask(id);
+        
+        // delete task
+        else if(method === "delete") await model.deleteTask(id);
+        
+        // tasks
+        const { tasks } = model.state.tasks;
+       
+        // render tasks
+        tasksView.render(tasks);
+        
+    } catch (error) {  tasksView.renderFail( "error", error.message ); }
+
 }
 
 
@@ -63,6 +90,8 @@ export default function init()
     if(tasksView._parentComponent) // renderizar las tareas cuando se este en proyectos
     {
         listTask();
+        tasksView.addHandleUpdateTask(updateTask);
+        tasksView.addHandleDeleteTask(updateTask);
         renderForm();
         taskView._toggleModal(); 
     }   

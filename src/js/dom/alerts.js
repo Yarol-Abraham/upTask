@@ -1,5 +1,5 @@
 
-function hideMessage()
+export function hideMessage()
 {
     const element = document.querySelector(".alert");
     if(element) element.parentElement.removeChild(element);

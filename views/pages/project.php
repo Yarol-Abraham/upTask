@@ -15,13 +15,7 @@
             <div class="overlay modal--hidden"></div>
 
             <div class="project__list">
-                <!--<div class="project__list--item">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <div class="project__list--buttons">
-                        <button type="button" class="btn btn-ms-w btn-yellow">Pendiente</button>
-                        <button type="button" class="btn btn-ms-w btn-red">Eliminar</button>
-                    </div>
-                </div> -->
+                <!-- generate js -->
                 
             </div>
         </div>
