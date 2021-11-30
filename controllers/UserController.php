@@ -70,4 +70,9 @@ class UserController
         static::render($router);
     }
 
+    public static function update() // actualizar cuenta de usuario
+    {
+
+    }
+
 }

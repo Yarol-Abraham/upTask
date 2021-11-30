@@ -21,4 +21,17 @@
             }
         }
     }
+    &__filter{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        @include respond(phone) {
+            flex-direction: row;
+            width: 50%;
+        }
+        &__item{
+            padding: 1rem;
+        }
+    }
 }

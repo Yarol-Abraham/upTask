@@ -13,10 +13,23 @@
                 </div>
             </div>
             <div class="overlay modal--hidden"></div>
-
+            <h3>Filtrar tareas</h3>
+            <div class="project__filter">
+                <div class="project__filter__item">
+                    <label for="pendientes">Pendientes</label>
+                    <input type="radio" name="filtro" id="pendientes" value="0" />
+                </div>
+                <div class="project__filter__item">
+                    <label for="completadas">Completadas</label>
+                    <input type="radio" name="filtro" id="completadas" value="1" />
+                </div>
+                <div class="project__filter__item">
+                    <label for="todas">Todas</label>
+                    <input type="radio" name="filtro" id="todas" value="2" checked />
+                </div>
+            </div>
             <div class="project__list">
                 <!-- generate js -->
-                
             </div>
         </div>
     </div><!----- content ----->

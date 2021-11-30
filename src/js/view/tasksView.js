@@ -3,6 +3,12 @@ import View from './view.js';
 class TasksView extends View {
     
     _parentComponent = document.querySelector('.project__list');
+    _msg = "En este apartato apareceran tus tareas creados! 😊✔";
+
+    setMsg(msg)
+    {
+        this._msg = msg;
+    }
 
     _generateMarkup()
     {
@@ -26,7 +32,7 @@ class TasksView extends View {
     {
         return `
             <div class="projects__message">
-                <p class="text-center text-uppercase md-mb">En este apartato apareceran tus tareas creados! 😊✔</p>
+                <p class="text-center text-uppercase md-mb">${this._msg}</p>
                 <div class="projects__img">
                     <img src="/upTask/src/images/dashboard/lanzamiento.png" alt="lanzamiento">
                 </div>

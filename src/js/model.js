@@ -80,3 +80,16 @@ export const deleteTask = async function(id) // eliminar tarea por id
         
     } catch (error) { throw error; }
 }
+
+export const filterTasks = function(filter) // filtrar las tareas
+{
+    let { tasks } = state.tasks;
+    let filterTask;
+    
+    if(filter === 1 || filter === 0) 
+        filterTask = tasks.filter(task => Number(task.estado) === filter);
+    if(filter === 2) 
+        filterTask = tasks;
+    
+    return filterTask;
+}

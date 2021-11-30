@@ -1,11 +1,12 @@
 import * as model from './model.js';
 import taskView from './view/taskView.js';
 import tasksView from './view/tasksView.js';
+import filterView from './view/filterView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-const listTask = async function()
+const listTask = async function() // listar tareas
 {
     try {
         //loading
@@ -27,7 +28,7 @@ const listTask = async function()
     }
 }
 
-const createTask = async function(newTask)
+const createTask = async function(newTask) // crear tareas
 { 
     try {
         //loading
@@ -58,7 +59,7 @@ const createTask = async function(newTask)
     }
 }
 
-const updateTask = async function(id, method = "")
+const updateTask = async function(id, method = "") // actualizar tareas
 {
     try {
         
@@ -78,8 +79,26 @@ const updateTask = async function(id, method = "")
 
 }
 
+const filterTask = function(filter) // filtrar tareas
+{   
+    // filter
+    const filters = model.filterTasks(filter);
 
-function renderForm(){
+    // tasks
+    let { tasks } = model.state.tasks;
+    tasks = filters;
+
+    // si no existen tareas en pendientes o completadas
+    if(filter === 0)tasksView.setMsg("No hay tareas pendientes de momento! 🤔 ");
+    if(filter === 1)tasksView.setMsg("No hay tareas completadas de momento! 🤔 ");
+    
+    // render tasks
+    tasksView.render(tasks);
+
+}
+
+function renderForm()
+{
     taskView.renderForm();
     taskView._toggleModalButton();
     taskView.addHandleForm(createTask);
@@ -94,5 +113,6 @@ export default function init()
         tasksView.addHandleDeleteTask(updateTask);
         renderForm();
         taskView._toggleModal(); 
+        filterView.addHandleFilter(filterTask);
     }   
 }
