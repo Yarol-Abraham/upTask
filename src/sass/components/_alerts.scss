@@ -9,8 +9,19 @@
     background: $red;
     color: $white;
   }
+  &-fail {
+    top: 12rem;
+    background: $red;
+    color: $white;
+  }
   &-success{
     background: $green;
     color: $white;
   }
+  &-correct{
+    top: 12rem;
+    background: $green;
+    color: $white;
+  }
 }
+

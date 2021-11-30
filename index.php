@@ -28,16 +28,17 @@ $router->post("/dashboard/project", [ProjectsController::class, "project"]);
 $router->get("/dashboard/create", [ProjectsController::class, "create"]); 
 $router->post("/dashboard/create", [ProjectsController::class, "create"]); 
 $router->get("/dashboard/account", [UserController::class, "account"]); 
+$router->post("/dashboard/account", [UserController::class, "account"]); // actualizar datos de usuario 
 // ----- Api Task -----
 $router->get("/api/tasks", [TaskController::class, "index"]);
 $router->post("/api/task", [TaskController::class, "create"]);
 $router->post("/api/task/update", [TaskController::class, "update"]);
 $router->post("/api/task/delete", [TaskController::class, "delete"]);
-// ----- User Api -----
-$router->post("/user/update", [UserController::class, "update"]);
 // ----- User -----
 $router->get("/user/create", [UserController::class, "create"]);
 $router->post("/user/create", [UserController::class, "create"]);
+$router->get("/user/update", [UserController::class, "update"]);
+$router->post("/user/update", [UserController::class, "update"]); // actualizar contraseña de usuario
 // ----- Error -----
 $router->get("/error/index", [ErrorController::class, "index"]);
 $router->router(); // capturar ruta creada

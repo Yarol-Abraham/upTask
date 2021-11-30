@@ -9,11 +9,11 @@ use Mailer\Mailer; // mailer
 class AuthController
 {
    
-    private static function render($router, $errors = [])
+    private static function render($router, $alerts = [])
     {
         $router->render(UserModel::getRoute(), [
             "name" => UserModel::getName(), // nombre de la pagina
-            "errors" => $errors // errores
+            "alerts" => $alerts // errores
         ]); // renderizar la vista
     }
 
@@ -48,6 +48,7 @@ class AuthController
             session_start(); // iniciar la autenticación
             $_SESSION['id'] = $userExists->id;
             $_SESSION['nombre'] = $userExists->nombre;
+            $_SESSION['email'] = $userExists->email;
             $_SESSION['login'] = true;
             return header('Location: /upTask/dashboard/index');
         }
@@ -55,7 +56,7 @@ class AuthController
         static::render($router); // renderizar la vista
     }
 
-    public static function logout(Router $router)
+    public static function logout()
     {
         session_start();
         $_SESSION = [];

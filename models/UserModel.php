@@ -19,6 +19,8 @@ class UserModel extends ActiveRecord
     public $id;
     public $nombre;
     public $email;
+    public $passwordActual;
+    public $passwordNueva;
     public $password;
     public $token;
     public $confirmPassword;
@@ -29,9 +31,11 @@ class UserModel extends ActiveRecord
         $this->id = $args['id'] ?? null;
         $this->nombre = $args['nombre'] ?? null;
         $this->email = $args['email'] ?? null;
+        $this->passwordActual = $args['passwordActual'] ?? null;
+        $this->passwordNueva = $args['passwordNueva'] ?? null;
         $this->password = $args['password'] ?? null;
-        $this->token = $args['token'] ?? null;
         $this->confirmPassword = $args['confirmPassword'] ?? null;
+        $this->token = $args['token'] ?? null;
         $this->confirmar = $args['confirmar'] ?? 0;
     }
 
@@ -47,6 +51,13 @@ class UserModel extends ActiveRecord
         return self::getErrors(); // retornar los errores
     }
 
+    public function validaAccount() // validar nombre y email de usuario
+    {
+        if (!$this->nombre) self::setErrors("error", "Por favor ingrese su nombre 😅");
+        if (!$this->email) self::setErrors("error", "El email no es válido 😥");
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) self::setErrors("error", "El email no es válido 😢");
+        return self::getErrors(); // retornar los errores
+    }
     
     public function validateEmail() // validar email unicamente
     {
@@ -61,6 +72,15 @@ class UserModel extends ActiveRecord
         if (!$this->confirmPassword) self::setErrors("error", "Debes de confirmar tu contraseña 😥");
         if ($this->password !== $this->confirmPassword) self::setErrors("error", "Las contraseñas no son iguales 😥");
         if (strlen($this->password) < 6) self::setErrors("error", "La contraseña debe tener un minimo de 6 caracteres 🤔");
+        return self::getErrors(); // retornar los errores
+    }
+
+    public function validatePasswordNew() // validar contraseñas unicamente - account
+    {
+        if (!$this->passwordNueva) self::setErrors("fail", "La contraseña nueva no puede ir vacia 😥");
+        if (!$this->confirmPassword) self::setErrors("fail", "Debes de confirmar tu nueva contraseña 😥");
+        if ($this->passwordNueva !== $this->confirmPassword) self::setErrors("fail", "Las contraseñas no son iguales 😥");
+        if (strlen($this->passwordNueva) < 6) self::setErrors("fail", "La contraseña nueva debe tener un minimo de 6 caracteres 🤔");
         return self::getErrors(); // retornar los errores
     }
 

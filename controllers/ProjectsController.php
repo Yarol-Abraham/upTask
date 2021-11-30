@@ -8,11 +8,11 @@ use Model\TaskModel;
 
 class ProjectsController {
 
-    private static function render($router, $project = null, $errors = []){
+    private static function render($router, $project = null, $alerts = []){
         isAuth(); // verifica autenticacion
         $router->render(ProjectsModel::getRoute(), [
             "name" => ProjectsModel::getName(),
-            "errors" => $errors,
+            "alerts" => $alerts,
             "project" => $project
         ]);
     }
