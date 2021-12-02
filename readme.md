@@ -28,14 +28,14 @@
 </li>
 </ul>
 
-<h1>Paginas de Autenticación</h1>
-<img src="/src/images/readne/1.png" alt="preview" />
+<h2>Paginas de Autenticación</h2>
+<img src="/src/images/readme/1.png" alt="preview" />
 
-<h1>Paginas de acceso al usuario</h1>
-<img src="/src/images/readne/2.png" alt="preview" />
+<h2>Paginas de acceso al usuario</h2>
+<img src="/src/images/readme/2.png" alt="preview" />
 
-<h1>Paginas de acceso al usuario en un telefono</h1>
-<img src="/src/images/readne/3.png" alt="preview" />
+<h2>Paginas de acceso al usuario en un telefono</h2>
+<img src="/src/images/readme/3.png" alt="preview" />
 
 <ul>
 <li>
