@@ -1,0 +1,5 @@
+1. npm install / npm run install
+2. composer install / composer run install
+3. npm start:js / npm run start:js
+4. npm start:sass / npm run start:sass
+5. crear db con el nombre: uptask e importar /script/uptask.sql a la misma

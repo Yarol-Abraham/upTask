@@ -1,6 +1,6 @@
 <?php
 
-require "environment.php";
+require "environment.php"; // sustituir por env.php
 require "db.php";
 require 'utils.php';
 require __DIR__ . '/../vendor/autoload.php';
