@@ -56,7 +56,7 @@ class UserController
                 $user->token,
                 "create"
             );// crendenciales
-            if($mailer->send()) return header('Location: /upTask/auth/message');
+            if($mailer->send()) return header('Location: /upTask/auth/message?email=' . $user->email);
             $user->setErrors("error", "Ha ocurrido un error al enviar el email 😢");
             $errors = $user::getErrors();
             return static::render($router, $user, $errors); // mostrar la vista con el error

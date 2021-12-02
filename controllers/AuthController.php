@@ -139,6 +139,16 @@ class AuthController
 
     public static function message(Router $router)
     {
+        $email = isset($_GET['email']) ? $_GET['email'] : null;
+        
+        if(!$email) return header('Location: /upTask/auth/login'); //debe existir un email
+        
+        $user = UserModel::where('email', $email);
+        
+        if(empty($user)) return header('Location: /upTask/auth/login'); // debe existir el usuario con el email
+
+        if($user->confirmar === 1) return header('Location: /upTask/auth/login'); // debe de ser un usuario sin confirmar
+
         UserModel::setRoute("/authentication/message");
         UserModel::setName("Mensaje");
         static::render($router); // renderizar la vista

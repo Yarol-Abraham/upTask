@@ -10,7 +10,7 @@
                     <img src="/upTask/src/images/enviar-mensaje.png" alt="enviando">
                 </div>
                 <div class="auth__box__mensaje">
-                    <p class="message-black ml-mb">Hemos enviado las instrucciones a tu email para continuar 📩</p>
+                    <p data-cy="message" class="message-black ml-mb">Hemos enviado las instrucciones a tu email para continuar 📩</p>
                 </div>
             </div><!-- auth__box -->
         </div><!-- auth__container -->

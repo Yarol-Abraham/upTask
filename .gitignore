@@ -4,3 +4,9 @@ vendor
 node_modules
 /includes/environment.php
 /src/js/config.js
+/cypress/fixtures
+/cypress/plugins
+/cypress/support
+/cypress/integration/1-getting-started
+/cypress/integration/2-advanced-examples
+

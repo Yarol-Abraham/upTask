@@ -17,8 +17,8 @@
                     <button class="btn-md-w btn btn-blue btn--animated ms-my" type="submit">Iniciar Sesión</button>
 
                     <div class="auth__form-login__item">
-                        <a class="auth__link" href="/upTask/user/create">¿Aún no tienes una cuenta?. Crea una</a>
-                        <a class="auth__link" href="/upTask/auth/forgett">¿Olvidastes tu contraseña?</a>
+                        <a data-cy="link_create_account" class="auth__link" href="/upTask/user/create">¿Aún no tienes una cuenta?. Crea una</a>
+                        <a data-cy="link_forgett_pass" class="auth__link" href="/upTask/auth/forgett">¿Olvidastes tu contraseña?</a>
                     </div>
                 </form><!-- form -->
             </div><!-- auth__box -->
